@@ -1,0 +1,53 @@
+import random
+
+def user_input():
+
+	while True:
+
+		try:
+
+			num_user = int(input('what number am i thinking of? from 1 to 10\n'))
+
+			if num_user > 10:
+				print('only values below 10 are accepted')
+				continue
+
+			return num_user
+			break
+
+		except ValueError:
+			print('insert a numeric value please.')
+			continue
+
+def random_number():
+	r_num = random.randint(1,10)
+	return r_num
+
+def comparison(r_num, num_user):
+
+	if num_user == r_num:
+		print('Congratulations!! the number you thought its the same as the machine output')
+
+	else:
+		print('incorrect number, better luck next time')
+
+def main():
+	time = 0
+	while True:
+
+			num_user = user_input()
+			r_num = random_number()
+			comparison(r_num, num_user)
+
+			time = time + 1
+			if time == 5:
+				time = 0
+				answer = input('do you want to keep playing? (yes/no): ')
+
+				if answer != 'yes':
+					print('thank you for playing!')
+					break
+
+		
+if __name__ == "__main__":
+	main()
